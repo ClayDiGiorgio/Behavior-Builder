@@ -1,0 +1,34 @@
+
+Program
+  = LSQUIGGLE IDENTIFIER* RSQUIGGLE LSQUIGGLE <behaviorRoutine>* RSQUIGGLE
+
+Time
+  = DIGIT{1,2} COLON DIGIT{2} (COLON DIGIT{2})? (AM | PM)?
+
+BoolBuiltIn
+  = Sees [object]
+  | [object] is within <distance> of [object] // [object] always includes "me"
+  | Hears [sound]
+  | Touches [object]
+  | Within scent distance <distance> of [object]
+  | Time is between <time> and <time>
+  | Repeat every <num> seconds
+  | Weather is [weather]
+  | Season is [season]
+  
+//NumBuiltIn
+//  = [object] distance to [object]
+//  | 
+//  | 
+
+Trigger
+  = @BoolBuiltIn@
+  | @Trigger@ AND @Trigger@
+  | @Trigger@ OR @Trigger@
+  | @Trigger@ XOR @Trigger@
+  | NOT @Trigger@
+  | LPAREN @Trigger@ RPAREN
+  |
+  |
+  |
+  

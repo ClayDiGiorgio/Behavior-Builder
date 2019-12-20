@@ -1,0 +1,107 @@
+# Global Variables
+
+// [Variable Name] = [value]
+// ...
+
+# end
+
+# Behavior Routines
+
+// Name
+    // Step 1
+    // Step 2
+    // ...
+// ...
+
+# end
+
+# Conditions
+
+// Condition
+    // Trigger
+        // Behavior Routine Name
+    // Trigger
+        // Behavior Routine Name
+    // ...
+// Condition
+    // ...
+//...
+
+# end
+
+
+
+// Simple bee example
+
+# Behaviors
+
+Takeoff
+    set animation to "hover"
+    translate up at speed 1.0
+    yeild for 1 second
+    stop                      // stops all currently running commands
+
+Land
+    translate down at speed 1.0
+    stop when touching anything
+    set animation to "standIdle"
+    
+Wander
+    // assumes Takeoff has been run
+    rand1 = random
+    rand2 = random
+    
+    // Turning+movement strategy 1
+    rotate facing direction to rand1 at speed 1.0
+    move forward at speed 1.5 with acceleration 0.2
+    yeild for rand2 seconds
+    
+    
+MoveToFlower
+    // Turning+movement strategy 2
+    rotate facing direction to "flower" at speed 1.0
+    wait
+    move forward at speed 1.5 with acceleration 0.2
+    stop when distance from me to flower is less than 1.0
+    
+    
+GoToFlower
+    MoveToFlower
+    wait
+    Land
+    flowerCount += 1
+    
+
+ReturnToHive
+    path to "hive" at speed 1.5 with acceleration 0.2 and turn speed 1.0 and turn acceleration 0.1
+    stop when touching "hive"
+    
+    
+    
+# graph transitions
+
+Wander
+    |
+    +--> Me within 10 ft of a flower ---> GoToFlower
+
+Takeoff
+    |
+    +--> [wait for finish] if flowerCount > 5 --> ReturnToHive
+    |
+    +--> [wait for finish] lambda --------------> Wander
+    
+GoToFlower
+    |
+    +--> Wait 10 seconds ---------------> Takeoff
+
+ReturnToHive
+    |
+    +--> [wait for finish] lambda ------> Wander
+
+
+# Meta
+
+Follow Vertical Axis Contours of Land = True
+(Pathing) Dodge obstacles from 2 ft away
+(Pathing) Dodge obstacles within 6 inches of path
+

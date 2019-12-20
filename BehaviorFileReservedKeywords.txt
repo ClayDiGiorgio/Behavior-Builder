@@ -1,0 +1,63 @@
+// <foo> is a non-terminal 
+// [bar] is a generic terminal of type bar
+//      eg: [object] may be replaced by "table" or "flower"
+// anything unbracketed is a definite terminal
+
+## Behavior Routines
+
+Set animation to [animation]
+Rotate facing direction to <direction> at speed <speed> 
+Move forward at speed <speed>
+Translate in direction <direction> at speed [speed]
+
+
+Finish
+Yield for <num> seconds
+
+
+# end
+
+## Trigger
+
+Sees [object]
+[object] within <distance> of [object] // [object] always includes "me"
+Hears [sound]
+Touches [object]
+Within scent distance <distance> of [object]
+Time is between <time> and <time>
+Repeat every <num> seconds
+Weather is [weather]
+Season is [season]
+
+# end
+
+## bool
+// Boolean Arithmetic Expression
+
+<Trigger>
+<bool> AND <bool>
+<bool> OR <bool>
+<bool> XOR <bool>
+( @bool )
+<num> < <num>
+<num> > <num>
+<num> == <num>
+<num> != <num>
+[global variable]
+
+# end
+
+## num
+// Arithmetic Expression
+
+[number]
+[global variable]
+<num> + <num>
+<num> - <num>
+<num> * <num>
+<num> / <num>
+<num> % <num>
+(<num>)
+[object] within <num> of [object]
+
+# end

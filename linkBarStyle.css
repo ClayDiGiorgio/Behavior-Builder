@@ -1,0 +1,25 @@
+
+.horizontal-spacer{
+    width:100%;
+}
+
+.link-bar {
+/*     background:linear-gradient(green, darkGreen); */
+    padding:0px;
+    display:flex;
+}
+
+.navigation-link, .horizontal-spacer {
+/*     color:white; */
+    background-image: linear-gradient(lightGrey, grey);
+    padding:10px;
+    text-decoration:none;
+    display:flex;
+    white-space: nowrap;
+    
+    text-transform:upperCase;
+}
+
+.navigation-link:hover {
+    background-image: linear-gradient(grey, lightGrey);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE "html">
+<html>
+    <head>
+        <html lang="en-US">
+    
+        <meta charset="utf-8">
+        <meta name="author" content="Clay">
+        <meta name="description" content="">
+        <title>Behavior Builder</title>
+        
+        <!--
+        <link rel="stylesheet" href="draggable.css" type="text/css">
+        <script type="text/javascript" src="draggable.js"></script>
+        -->
+        <link rel="stylesheet" href="linkBarStyle.css" type="text/css">
+        <link rel="stylesheet" href="behaviorEditor.css" type="text/css">
+        <script src="fsmCanvasAutoSizer.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <!--
+        <div class="draggable">
+            <div class="handle">
+            </div>
+            <textarea>This text is selectable</textarea>
+        </div>
+        -->
+        <div id="toolbar" class="link-bar">
+            <span class="horizontal-spacer mobile-hide"></span>
+            <button type="button" class="navigation-link"> New State </button>
+            
+            <span class="horizontal-spacer mobile-hide"></span>
+        
+            <button type="button" class="navigation-link"> Placeholder </button>
+        
+            <span class="horizontal-spacer mobile-hide"></span>
+        
+            <button type="button" class="navigation-link"> Placeholder </button>
+            <button type="button" class="navigation-link"> Placeholder </button>
+            
+            <span class="horizontal-spacer mobile-hide"></span>
+        
+        </div>
+        
+        <div id="main-body-container">
+            <div id="FSM-Display">
+                
+                <canvas id="FSM-Display-Canvas" width=10 height=20>
+                <!--
+                <textarea id="behavior-code" style="background:#ff0000"></textarea>
+                -->
+            </div>
+            
+            <div id="Editor">
+                <div id="behavior-code-container">
+                    <textarea id="behavior-code"></textarea>
+                </div>
+                <div id="transitions-container">
+                    <div class="single-transition-container">
+                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
+                    </div>
+                    <div class="single-transition-container">
+                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
+                    </div>
+                    <div class="single-transition-container">
+                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
+                    </div>
+                    <div class="single-transition-container">
+                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
+                    </div>
+                    <div class="single-transition-container">
+                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
+                    </div>
+                    <div class="single-transition-container">
+                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

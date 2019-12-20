@@ -1,0 +1,53 @@
+#main-body-container {
+    height:90%;
+}
+
+#toolbar {
+    width:100%;
+}
+
+#FSM-Display {
+    height:100%;
+    width:48%;
+    float:left;
+    
+    padding:0px;
+    
+    background:#ff0000;
+}
+
+#Editor {
+    width:50%;
+    float:right;
+    
+    background:#d1d1d1;
+    border-style:solid;
+    border-color:black;
+    border-width:7px;
+    
+    padding:0px;
+}
+
+#behavior-code-container {
+    height:75%;
+    
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+}
+
+#transitions-container {
+    height:25%;
+    
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    
+    overflow:auto;
+}
+
+#behavior-code {
+    width:100%;
+    height:100%;
+    resize:none;
+}
