@@ -80,7 +80,7 @@ function newEmptyState() {
     
     return {
         name: "NewState", 
-        connections:[], 
+        transitions:[], 
         scriptText:"", 
         drawData: {
             x:rand(0,100), 
@@ -88,6 +88,13 @@ function newEmptyState() {
             rgb:color[0],
             contrastColor:color[1]
         }
+    };
+}
+function newTransition() {
+    return {
+        to: "",
+        condition: "",
+        activateImmediately:false
     };
 }
 
@@ -99,6 +106,7 @@ function addNewState() {
 
 function addNewTransition() {
     transitionContainer.insertAdjacentHTML( 'beforeend', transitionEntryHTML);
+    states[currentLoadedState].transitions.push(newTransition());
 }
 
 function onCanvasClick(e) {
