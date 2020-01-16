@@ -4,21 +4,13 @@
  * Code directly from https://jsfiddle.net/a6tgy9so/1/
  */
 .draggable {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
+    /*width: 100px;
+    height: 100px;*/
+    /*border: 1px solid black;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;*/
 }
 
 .handle {
-    width: 10px;
-    height: 10px;
-    border-right: 20px solid transparent;
-    border-top: 20px solid black;
     cursor: move;
-}
-
-textarea {
-  flex-grow: 1;
 }

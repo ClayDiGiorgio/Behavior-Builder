@@ -8,13 +8,13 @@
         <meta name="description" content="">
         <title>Behavior Builder</title>
         
-        <!--
-        <link rel="stylesheet" href="draggable.css" type="text/css">
-        <script type="text/javascript" src="draggable.js"></script>
-        -->
+        
+        <link rel="stylesheet" href="draggable/draggable.css" type="text/css">
+        <script type="text/javascript" src="draggable/draggable.js"></script>
+        
         <link rel="stylesheet" href="linkBarStyle.css" type="text/css">
         <link rel="stylesheet" href="behaviorEditor.css" type="text/css">
-        <script src="fsmCanvasAutoSizer.js" type="text/javascript"></script>
+        
     </head>
     <body>
         <!--
@@ -24,9 +24,16 @@
             <textarea>This text is selectable</textarea>
         </div>
         -->
+        
+        <!--
+        ===============================
+                Toolbar
+        ===============================
+        -->
+        
         <div id="toolbar" class="link-bar">
             <span class="horizontal-spacer mobile-hide"></span>
-            <button type="button" class="navigation-link"> New State </button>
+            <button type="button" class="navigation-link" onclick=addNewState()> New State </button>
             
             <span class="horizontal-spacer mobile-hide"></span>
         
@@ -41,40 +48,52 @@
         
         </div>
         
+        
+        
         <div id="main-body-container">
+            
+            <!--
+            ===============================
+                     Main Graph
+            ===============================
+            -->
+        
             <div id="FSM-Display">
-                
-                <canvas id="FSM-Display-Canvas" width=10 height=20>
-                <!--
-                <textarea id="behavior-code" style="background:#ff0000"></textarea>
-                -->
+                <canvas id="FSMDisplayCanvas" width=10 height=20>
             </div>
             
+            <!--
+            ===============================
+                     Typing Area
+            ===============================
+            -->
+            
             <div id="Editor">
+                
+                <!--State Name-->
+                <div id="state-name-entry-container">
+                    <input id="state-name-entry" type="text" value="New State">
+                </div>
+                <!--Main Code Editor-->
+                
                 <div id="behavior-code-container">
                     <textarea id="behavior-code"></textarea>
                 </div>
+                
+                <!--Transitons-->
+                
                 <div id="transitions-container">
-                    <div class="single-transition-container">
-                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
-                    </div>
-                    <div class="single-transition-container">
-                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
-                    </div>
-                    <div class="single-transition-container">
-                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
-                    </div>
-                    <div class="single-transition-container">
-                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
-                    </div>
-                    <div class="single-transition-container">
-                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
-                    </div>
-                    <div class="single-transition-container">
-                        Wait: <input type="checkbox" name="waitForPreviousFinish0"> If: <input type="text" name="transitionCondition0"> GoTo: <input type="text" name="transitionDestination0">
-                    </div>
+                    Condition . . . . . . . . New State . . . . . . . . . . Activate Immedately
+                    <!--Single Transition Condition and Destination-->
+                    
+                    
+                    
                 </div>
             </div>
         </div>
     </body>
+    
+    <script src="fsmCanvasAutoSizer.js" type="text/javascript"></script>
+    <script src="BehaviorBuilderCore.js" type="text/javascript"></script>
+        
 </html>
