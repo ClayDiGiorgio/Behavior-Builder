@@ -6,13 +6,13 @@
 // ======================
 
 var states = [];
-var currentLoadedState = 0;
+var currentLoadedStateIndex = 0;
 
 
 var sdTranslation = [0, 0];
 
-var sdCanvas = document.getElementById("FSMDisplayCanvas");
-var sdcContext = canvas.getContext("2d");
+var sdCanvas   = document.getElementById("FSMDisplayCanvas");
+var sdcContext = canvas.  getContext("2d");
 
 var drawConstants = {
     stateWidth:100, 
@@ -30,6 +30,9 @@ var transitionEntryHTML = '<div class="single-transition-container" id="transiti
                            </div>                                                        \
                                                                                          \
                            <center><div class="horizontal-line"></div></center>';
+
+var stateScriptInput = document.getElementById("behavior-code");
+var stateNameInput   = document.getElementById("state-name-entry");
 
 // ======================
 //
@@ -106,18 +109,63 @@ function addNewState() {
 
 function addNewTransition() {
     transitionContainer.insertAdjacentHTML( 'beforeend', transitionEntryHTML);
-    states[currentLoadedState].transitions.push(newTransition());
+    states[currentLoadedStateIndex].transitions.push(newTransition());
 }
 
 function onCanvasClick(e) {
     
 }
 
-function loadStateToEditor(state) {
-    document.getElementById("state-name-entry").value = state.name;
-    document.getElementById("behavior-code").   value = state.scriptText;
+function saveEditedState() {
+    var state = states[currentLoadedStateIndex];
+    state.name       = stateNameInput.  value;
+    state.scriptText = stateScriptInput.value; 
+}
+
+function loadStateToEditor(stateIndex) {
+    saveEditedState();
     
+    currentLoadedStateIndex = stateIndex;
+    state = states[stateIndex];
+    stateNameInput.  value = state.name;
+    stateScriptInput.value = state.scriptText;
+}
+
+function exportJSON(e) {
+    saveEditedState();
     
+    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(states));
+    
+    e.setAttribute("href", "data:"+data);
+    e.setAttribute("download", "behavior.json");
+}
+
+function importJSON(e) {
+    // read JSON from file
+    var input = document.createElement('input');
+    input.type = 'file';
+
+    input.onchange = e => { 
+        // getting a hold of the file reference
+        var file = e.target.files[0]; 
+
+        // setting up the reader
+        var reader = new FileReader();
+        reader.readAsText(file,'UTF-8');
+
+        // here we tell the reader what to do when it's done reading...
+        reader.onload = readerEvent => {
+            var content = readerEvent.target.result; // this is the content!
+            console.log( content );
+            
+            states = JSON.parse();
+    
+            loadStateToEditor(0);       
+        }
+
+    }
+
+    input.click();
 }
 
 

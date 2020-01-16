@@ -18,6 +18,9 @@
     white-space: nowrap;
     
     text-transform:upperCase;
+    font: 15px arial, sans-serif;
+    
+    color:black;
 }
 
 .navigation-link:hover {

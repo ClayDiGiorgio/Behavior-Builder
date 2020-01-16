@@ -33,16 +33,18 @@
         
         <div id="toolbar" class="link-bar">
             <span class="horizontal-spacer mobile-hide"></span>
-            <button type="button" class="navigation-link" onclick=addNewState()> New State </button>
+            <a class="navigation-link" onclick=addNewState()> New State </a>
             
             <span class="horizontal-spacer mobile-hide"></span>
         
-            <button type="button" class="navigation-link"> Placeholder </button>
+            <a class="navigation-link"> Placeholder </a>
         
             <span class="horizontal-spacer mobile-hide"></span>
         
-            <button type="button" class="navigation-link"> Placeholder </button>
-            <button type="button" class="navigation-link"> Placeholder </button>
+            <input id="importFileInput" type="file" name="importFile" style="display: none;" />
+            
+            <a class="navigation-link" onclick='importJSON(this);'> Import </a>
+            <a class="navigation-link" onclick='exportJSON(this);'> Export </a>
             
             <span class="horizontal-spacer mobile-hide"></span>
         
